@@ -22,7 +22,7 @@ Tested using Python 3.7 and CasADi 3.5
     * `robotic_walker`: Generates simulation results in Figure 3 for the robotic walker example.
     * `quadrotor`: Generates simulation results in Figure 4 for the quadrotor example.
 
-* `figures`: Generates figures in the manuscript.
+* `figures`: Generates figures in the manuscript using pickle files.
 
 * `SSE.py`: Implementation of ellipsoidal set-membership state estimation
 
@@ -32,7 +32,7 @@ Note that we directly implemented the Switching SM-MPC for the double integrator
 
 ## Useful notes
 * The grid size used for searching the optimal parameters for the set-membership state estimation can be adjusted in `line 94-95` in `SSE.py`. We used a grid size of 0.1 for the double integrator example and of 0.01 for the other three examples.
-* As mentioned in the last paragraph of Subsection B in supplementary material, different full-dimensional bounding sets can be used for the computation of the contraint tightening. We provide two such bounding sets that are scalable to high-dimensional systems in our implementation:
+* As mentioned in the last paragraph of Subsection B in supplementary material, different full-dimensional bounding sets can be used for the computation of the constraint tightening. We provide two such bounding sets that are scalable to high-dimensional systems in our implementation:
     * axis-aligned bounding box (described in `line 197-198` in `SM_MPC_safe.py`)
     * arbitrarily oriented bounding box (described in `line 201-207` in `SM_MPC_safe.py`)
 
