@@ -26,13 +26,15 @@ Tested using Python 3.7 and CasADi 3.5
 
 * `SM_MPC_safe_2d.py`: Generates qualitative results in Figure 2 for the double integrator example.
 
-Note that we directly implemented the Switching SM-MPC for the double integrator example and did not include it in the `algorithm` folder.
+Note that we directly implemented the Switching SM-MPC for the double integrator example and did not include it in the `algorithms` folder.
 
 ## Useful notes
 * The grid size used for searching the optimal parameters for the set-membership state estimation can be adjusted in `line 94-95` in `SSE.py`. We used a grid size of 0.1 for the double integrator example and of 0.01 for the other three examples.
 * As mentioned in the last paragraph of Subsection B in supplementary material, different full-dimensional bounding sets can be used for the computation of the contraint tightening. We provide two such bounding sets in our implementation:
-    * axis-aligned bounding box (`line 196-197` in `SM_MPC_safe.py`): used in the double integrator and quadrotor example
-    * arbitrarily oriented bounding box (`line 200-206` in `SM_MPC_safe.py`): used in the cartpole and robotic walker example
+    * axis-aligned bounding box (described in `line 196-197` in `SM_MPC_safe.py`)
+    * arbitrarily oriented bounding box (described in `line 200-206` in `SM_MPC_safe.py`)
+
+  We used axis-aligned bounding box for the double integrator and quadrotor example, and arbitrarily oriented bounding box for the cartpole and robotic walker example.
 
 ## Example run
 * Run Safe SM-MPC for subsystem (*i*) in the robotic walker example:  
