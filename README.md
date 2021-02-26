@@ -1,5 +1,5 @@
 # Robust SM-MPC
-Code for the manuscript "Robust Model Predictive Control with Set-Membership State Estimation"
+Code for the manuscript "Robust Model Predictive Control with Set-Membership State Estimation".
 
 ## Prerequisites
 * [CasADi](https://web.casadi.org/)
@@ -14,17 +14,17 @@ Tested using Python 3.7 and CasADi 3.5
     * `SM_MPC_aggressive.py`: Implementation of Aggressive SM-MPC
     * `SM_MPC_safe.py`: Implementation of Safe SM-MPC
     * `SSE.py`: Implementation of ellipsoidal set-membership state estimation
-    * `utils.py`: Contains utility functions
+    * `utils.py`: Contains some utility functions.
 
 * `examples`
-    * `cartpole`: Generates simulation results for the cartpole example
-    * `double_integrator`: Generates quantitative simulation results in Table 1 and Table 2 for the double integrator example
-    * `robotic_walker`: Generates simulation results in Figure 3 for the robotic walker example
-    * `quadrotor`: Generates simulation results in Figure 4 for the quadrotor example
+    * `cartpole`: Generates simulation results for the cartpole example.
+    * `double_integrator`: Generates quantitative results in Table 1 and Table 2 for the double integrator example.
+    * `robotic_walker`: Generates simulation results in Figure 3 for the robotic walker example.
+    * `quadrotor`: Generates simulation results in Figure 4 for the quadrotor example.
 
-* `figures`: Generates figures in the manuscript
+* `figures`: Generates figures in the manuscript.
 
-* `SM_MPC_safe_2d.py`: Generates qualitative simulation results in Figure 2 for the double integrator example
+* `SM_MPC_safe_2d.py`: Generates qualitative results in Figure 2 for the double integrator example.
 
 Note that we directly implemented the Switching SM-MPC for the double integrator example and did not include it in the `algorithm` folder.
 
@@ -35,5 +35,8 @@ Note that we directly implemented the Switching SM-MPC for the double integrator
     * arbitrarily oriented bounding box (`line 200-206` in `SM_MPC_safe.py`): used in the cartpole and robotic walker example
 
 ## Example run
-* Run Safe SM-MPC for subsystem (*i*) in the robotic walker example: `python -m examples.robotic_walker.SM_MPC_safe_rw_y`
-* Generate closed-loop trajectory for the double integrator in Figure 2: `python -m figures.double_integrator.plot_di`
+* Run Safe SM-MPC for subsystem (*i*) in the robotic walker example:  
+  `python -m examples.robotic_walker.SM_MPC_safe_rw_y`
+  
+* Generate closed-loop trajectory for the double integrator in Figure 2:  
+  `python -m figures.double_integrator.plot_di`
