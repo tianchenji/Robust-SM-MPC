@@ -1,7 +1,7 @@
-# Robust SM-MPC
-Code for the manuscript "Robust Model Predictive Control with Set-Membership State Estimation".
+# Robust-SM-MPC
+Code for our paper [Robust Output Feedback MPC with Reduced Conservatism under Ellipsoidal Uncertainty](https://ieeexplore.ieee.org/abstract/document/9992704) at [CDC 2022](https://cdc2022.ieeecss.org/).
 
-The code will be released upon publication.
+We implemented three different algorithms: two tubes, single tube and the proposed SM MPC. Detailed descriptions of each method can be found in the paper.
 
 ## Prerequisites
 * [CasADi](https://web.casadi.org/)
@@ -9,38 +9,22 @@ The code will be released upon publication.
 Tested using Python 3.7 and CasADi 3.5
 
 ## Description of the code
-* `controllers`
-    * `LQR.py`: Implementation of LQR
-    * `Mayne_MPC.py`: Implementation of Mayne's MPC
-    * `nominal_MPC.py`: Implementation of nominal MPC
-    * `SM_MPC_safe.py`: Implementation of Safe SM-MPC
-    * `SM_MPC_aggressive.py`: Implementation of Aggressive SM-MPC
+The files containing "cstr" only generate the constraint tightening, while the files without "cstr" generate the closed loop trajectories. "qr" in the file name means quadrotor. `SSE.py` is the implementation of set-membership state estimation. More detailed comments can be found in the code.
 
-* `examples`
-    * `cartpole`: Generates simulation results for the cartpole example.
-    * `double_integrator`: Generates qualitative results in Figure 2 and quantitative results in Table 1 and Table 2 for the double integrator example.
-    * `robotic_walker`: Generates simulation results in Figure 3 for the robotic walker example.
-    * `quadrotor`: Generates simulation results in Figure 4 for the quadrotor example.
+The `results` folder contains all necessary data for the results presented in the paper (i.e., Figure 2, 3, and 4).
 
-* `figures`: Generates figures in the manuscript using pickle files.
+## Citation
+If you find the code useful, please consider citing our paper:
+```
+@inproceedings{ji2022robust,
+  title={Robust Output Feedback MPC with Reduced Conservatism under Ellipsoidal Uncertainty},
+  author={Ji, Tianchen and Geng, Junyi and Driggs-Campbell, Katherine},
+  booktitle={2022 IEEE 61st Conference on Decision and Control (CDC)},
+  pages={1782--1789},
+  year={2022},
+  organization={IEEE}
+}
+```
 
-* `SSE.py`: Implementation of ellipsoidal set-membership state estimation
-
-* `utils.py`: Contains some utility functions.
-
-Note that we directly implemented the Switching SM-MPC for the double integrator example and did not include it in the `controllers` folder.
-
-## Useful notes
-* The grid size used for searching the optimal parameters for the set-membership state estimation can be adjusted in `line 94-95` in `SSE.py`. We used a grid size of 0.1 for the double integrator example and of 0.01 for the other three examples.
-* As mentioned in the last paragraph of Subsection B in supplementary material, different full-dimensional bounding sets can be used for the computation of the constraint tightening. We provide two such bounding sets that are scalable to high-dimensional systems in our implementation:
-    * axis-aligned bounding box (described in `line 197-198` in `SM_MPC_safe.py`)
-    * arbitrarily oriented bounding box (described in `line 201-207` in `SM_MPC_safe.py`)
-
-  We used axis-aligned bounding box for the double integrator and quadrotor example, and arbitrarily oriented bounding box for the cartpole and robotic walker example.
-
-## Example run
-* Run Safe SM-MPC for subsystem (*i*) in the robotic walker example:  
-  `python -m examples.robotic_walker.SM_MPC_safe_rw_y`
-  
-* Generate closed-loop trajectory for the double integrator example in Figure 2:  
-  `python -m figures.double_integrator.plot_di`
+## Contact
+Feel free to reach me at tj12@illinois.edu if you have any questions.
